@@ -1,0 +1,39 @@
+CREATE TABLE task_type (
+  id int(2) NOT NULL,
+  type varchar(20) NOT NULL,
+  comment varchar(50) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE task (
+  id int(5) NOT NULL AUTO_INCREMENT,
+  user_id int(5) NOT NULL,
+  type_id int(2) NOT NULL,
+  title varchar(50) NOT NULL,
+  detail VARCHAR(2000) NOT NULL,
+  deadline datetime NOT NULL,
+  PRIMARY KEY (id)
+) ;
+
+CREATE TABLE authority (
+  id varchar(50) NOT NULL,
+  order_seq int(5) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE user (
+  id int(5) NOT NULL AUTO_INCREMENT,
+  username varchar(50) NOT NULL,
+  email varchar(70) NOT NULL,
+  password varchar(60) NOT NULL,
+  enabled tinyint(1) NOT NULL,
+  authority_id varchar(50) NOT NULL,
+  tempkey varchar(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+create table issues(
+id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+summary VARCHAR(256) NOT NULL,
+description VARCHAR(800) NOT NULL
+);

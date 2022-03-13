@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <title>knowledge</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mt-5">
+        </div>
+        <div class="col-md-6 mt-5">
+            <div class="card shadow" style="max-width: 480px;">
+                <div class="card-body">
+                    <h3 class="card-title mb-3 text-center text-navy">
+                        ログイン画面
+                    </h3>
+                    <!-- ログインメッセージ -->
+                    <div th:replace="~{fragments/message :: login}">
+                    </div>
+                    <form th:action="@{/login}" method="post">
+                        <div class="mb-3">
+                            <input class="form-control" type="text"
+                                   name="username" placeholder="ユーザ名">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="password"
+                                   name="password" placeholder="パスワード">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input class="form-check-input" type="checkbox"
+                                   id="remember-me" name="remember-me">
+                            <label class="form-check-label" for="remember-me">
+                                ログインしたままにする
+                            </label>
+                        </div>
+                        <button class="w-100 btn btn-navy btn btn-primary" type="submit">
+                            ログイン
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mt-5">
+        </div>
+	</div>
+</div>
+</body>
+</html>

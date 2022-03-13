@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <title>knowledge</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+    <a class="navbar-brand" href="./issues/list.html" th:href="@{/}">knowledge</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav4">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="./task.insert.html" th:href="@{/task/insert}">投稿</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./task/list.html" th:href="@{task/list}">投稿一覧</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/logout}">ログアウト</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mt-5">
+        	<b class="list-group-item">カテゴリ</b>
+              <a href="/task/type.html" th:href="@{/task/selectType?typeId=1}" class="list-group-item">ゲーム</a>
+              <a href="/task/type.html" th:href="@{/task/selectType?typeId=2}" class="list-group-item">漫画</a>
+              <a href="/task/type.html" th:href="@{/task/selectType?typeId=3}" class="list-group-item">アニメ</a>
+              <a href="/task/type.html" th:href="@{/task/selectType?typeId=4}" class="list-group-item">音楽</a>
+              <a href="/task/type.html" th:href="@{/task/selectType?typeId=5}" class="list-group-item">社会</a>
+              <a href="/task/type.html" th:href="@{/task/selectType?typeId=6}" class="list-group-item">芸能</a>
+        </div>
+        <div class="col-md-6 mt-5">
+        <h3>最新の投稿</h3>
+            <table class="table">
+	            <tbody>
+	            <tr th:each="obj : ${list}">
+					<td>
+						<a th:text=${obj.title} th:href="@{task/list/{id}(id=${obj.id})}"></a>
+					</td>
+				</tr>
+				</tbody>
+            </table>
+            <a href="task/list.html" th:href="@{task/list}">すべての投稿を見る</a>
+         </div>
+        <div class="col-md-3 mt-5">
+	        <a href="https://px.a8.net/svt/ejp?a8mat=2NT0WK+FTRUPE+FOQ+CD68H" rel="nofollow">
+			<img border="0" width="300" height="250" alt="" src="https://www26.a8.net/svt/bgt?aid=160917716957&wid=001&eno=01&mid=s00000002033002077000&mc=1"></a>
+			<img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=2NT0WK+FTRUPE+FOQ+CD68H" alt="">
+			<a href="https://px.a8.net/svt/ejp?a8mat=3N6052+B5VM42+4U5Q+5ZMCH" rel="nofollow">
+			<img border="0" width="300" height="250" alt="" src="https://www23.a8.net/svt/bgt?aid=220309814675&wid=001&eno=01&mid=s00000022571001006000&mc=1"></a>
+			<img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=3N6052+B5VM42+4U5Q+5ZMCH" alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>
